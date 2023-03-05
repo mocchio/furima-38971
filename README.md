@@ -29,7 +29,7 @@
 | category_id        | integer    | null: false                     |
 | status_id          | integer    | null: false                     |
 | delivery_charge_id | integer    | null: false                     |
-| prefectures_id     | integer    | null: false                     |
+| prefecture_id     | integer    | null: false                     |
 | day_to_ship_id     | integer    | null: false                     |
 | price              | integer    | null: false                     |
 | user               | references | null: false, foreign_key: true  |
@@ -40,7 +40,7 @@
 - has_one :order
 
 
-## order テーブル(購入記録)
+## orders テーブル(購入記録)
 
 | Column    | Type        | Option                           |
 | --------- | ----------- | -------------------------------- |
@@ -51,7 +51,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :shipping_addresses
+- has_one :shipping_address
 
 
 ## shipping_addresses テーブル(発送先情報)
@@ -59,13 +59,12 @@
 | Column            | Type        | Option                         |
 | ----------------- | ----------- | ------------------------------ |
 | post_code         | string      | null: false                    |
-| prefectures_id    | integer     | null: false                    |
+| prefecture_id    | integer     | null: false                    |
 | municipalities    | string      | null: false                    |
 | address           | string      | null: false                    |
 | building_name     | string      |                                |
 | telephone_number  | string      | null: false                    |
-| user              | references  | null: false, foreign_key: true |
-| item              | references  | null: false, foreign_key: true |
+| order             | references  | null: false, foreign_key: true |
 
 ### Association
 
