@@ -9,14 +9,13 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :day_to_ship
 
-  validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
-  validates :status_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
-  validates :delivery_charge_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
-  validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
-  validates :day_to_ship_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
+  validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :status_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :delivery_charge_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :day_to_ship_id, numericality: { other_than: 1 , message: "can't be blank"}
 
   validates :title, presence: true
   validates :explanation, presence: true
   validates :price, presence: true
-  validates :user, presence: true, foreign_key: true
 end
