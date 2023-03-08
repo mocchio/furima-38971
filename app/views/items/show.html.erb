@@ -34,7 +34,6 @@
     <%# //商品が売れていない場合はこちらを表示しましょう %>
     <% end %>
 
-    <% if user_signed_in? || !user_signed_in? %>
     <div class="item-explain-box">
       <span><%= @item.explanation %></span>
     </div>
@@ -76,7 +75,6 @@
         <span>不適切な商品の通報</span>
       </div>
     </div>
-    <% end %>
   </div>
   <%# /商品の概要 %>
 
@@ -102,9 +100,7 @@
       後ろの商品 ＞
     </a>
   </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
   <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
 </div>
 
 <%= render "shared/footer" %>
