@@ -9,9 +9,7 @@ class OrderShippingAddress
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :municipalities
     validates :address
-    validates :building_name
     validates :telephone_number, length: { minimum: 10, maximum: 11 }, numericality: { only_integer: true }
-    # validates :order_id
   end
   validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
 

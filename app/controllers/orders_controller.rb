@@ -4,6 +4,11 @@ class OrdersController < ApplicationController
 
   def index
     @order_shipping_address = OrderShippingAddress.new
+    if user_signed_in?
+      if @item.order.present? || (current_user == @item.user)
+        redirect_to root_path
+      end
+    end
   end
 
   def create
