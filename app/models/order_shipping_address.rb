@@ -11,7 +11,7 @@ class OrderShippingAddress
     validates :address
     validates :building_name
     validates :telephone_number, length: { minimum: 10, maximum: 11 }, numericality: { only_integer: true }
-    validates :order_id
+    # validates :order_id
   end
   validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
 
