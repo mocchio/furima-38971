@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe OrderShippingAddress, type: :model do
   before do
     @user = FactoryBot.create(:user)
-    @item = FactoryBot.create(:item, user: @user)
+    @item = FactoryBot.create(:item)
     @order_shipping_address = FactoryBot.build(:order_shipping_address, user_id: @user.id, item_id: @item.id)
     sleep(0.1)
   end
@@ -69,6 +69,11 @@ RSpec.describe OrderShippingAddress, type: :model do
         @order_shipping_address.telephone_number = "090123456789"
         @order_shipping_address.valid?
         expect(@order_shipping_address.errors.full_messages).to include("Telephone number is too long (maximum is 11 characters)")
+      end
+      it '半角数字以外が含まれている場合、商品購入はできない' do
+        @order_shipping_address.telephone_number = "090123456a"
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Telephone number is not a number")
       end
       it 'userと紐づいていない場合、商品購入はできない' do
         @order_shipping_address.user_id = nil
